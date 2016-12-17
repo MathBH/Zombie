@@ -79,15 +79,13 @@ public class Zombie {
 	 * Method to change the horde status of a zombie.
 	 * @param hordeStatus
 	 */
+	
 	public void setHordeStatus(boolean hordeStatus){
 		HORDE_MEMBER = hordeStatus;
 	}
-
-	public static void main(String[] args){
-		Zombie tom = new Zombie(1234, "Tom", 4, true);
-		System.out.println(tom.getHordeStatus());
-		System.out.println(tom.getLimbCount());
-		System.out.println(tom.getZombieID());
-		System.out.println(tom.getZombieName());
-    }
+	
+	public void leaveHorde(AbstractHorde horde){
+		if (horde.contains(this))
+			horde.remove(this);
+	}
 }
